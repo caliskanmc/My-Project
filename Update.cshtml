@@ -1,0 +1,46 @@
+﻿
+@model vize.Models.MalzemeViewDto
+@{
+
+}
+
+<h2>Update</h2>
+<form action="/Malzemeler/MalzemeUpdate">
+    <input name="Id" hidden value="@Model.Malzeme.Id"/>
+    <div class="form-group">
+        <label for="Marka">Marka:</label>
+        <input type="text" name="Marka"  class="form-control" id="Marka" value="@Model.Malzeme.Marka" />
+    </div>
+    <div class="form-group">
+        <label for="Model">Model:</label>
+        <input type="text" name="Modeli" class="form-control" id="Model" value="@Model.Malzeme.Modeli" />
+    </div>
+    <div class="form-group">
+        <label for="ParcaNo">Parça No:</label>
+        <input type="number" name="ParcaNo"  class="form-control" id="ParcaNo" value="@Model.Malzeme.ParcaNo" />
+    </div>
+    <div class="form-group">
+        <label for="ÜretimTarihi">Üretim Tarihi:</label>
+        <input type="date" name="ÜretimTarihi"  class="form-control" id="ÜretimTarihi" value="@Model.Malzeme.ÜretimTarihi" />
+    </div>
+    <div class="form-group">
+        <label for="ÜretimYeri">Üretim Yeri:</label>
+        <input type="text" name="ÜretimYeri"  class="form-control" id="ÜretimYeri" value="@Model.Malzeme.ÜretimYeri" />
+    </div>
+    <div class="form-group">
+        <label for="SoketTipi">Soket Tipi:</label>
+        <input name="SoketTipi" type="text" class="form-control" id="SoketTipi" value="@Model.Malzeme.SoketTipi" />
+    </div>
+    <div class="form-group">
+        <label for="SoketNo">Soket No:</label>
+        <input type="number" name="SoketNo"  class="form-control" id="SoketNo" value="@Model.Malzeme.SoketNo" />
+    </div>
+    <div class="form-group">
+        <label for="Fiyat">Fiyat:</label>
+        <input name="Fiyat" type="text" class="form-control" id="Fiyat" value="@Model.Malzeme.Fiyat" />
+    </div>
+
+
+    <button type="submit" class="btn btn-lg btn btn-success btn-block text-uppercase">Kaydet</button>
+</form>
+

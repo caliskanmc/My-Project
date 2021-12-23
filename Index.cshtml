@@ -1,0 +1,95 @@
+﻿@model List<vize.Models.malzeme>
+@{
+    ViewBag.Title = "Index";
+}
+<script>
+
+    function KayitSil(id) {
+        $("#silinecekId").val(id);
+        $('#silmeModal').modal("show");
+    }
+
+</script>
+
+<style>
+    td, th {
+        padding: 5px;
+    }
+</style>
+<h2>Malzemeler</h2>
+
+<a href="/Malzemeler/Create" id="btnYeniKayit" class="btn btn-primary"><span class="glyphicon glyphicon-plus "></span></a>
+
+<table style="width:100%" border="1">
+    <thead>
+
+        <tr>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>ParcaNo</th>
+            <th>ÜretimTarihi</th>
+            <th>ÜretimYeri</th>
+            <th>SoketTipi</th>
+            <th>SoketNo</th>
+            <th>Fiyat</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>@item.Marka</td>
+                <td>@item.Modeli</td>
+                <td>@item.ParcaNo</td>
+                <td>@item.ÜretimTarihi</td>
+                <td>@item.ÜretimYeri</td>
+                <td>@item.SoketNo</td>
+                <td>@item.SoketTipi</td>
+                <td>@item.Fiyat</td>
+                <td>
+                    <div class="pull-right" style="float:left; margin-left:5px;">
+                        <button class="btn btn-danger" onclick="KayitSil(@item.Id)"><span class="glyphicon glyphicon-minus"></button>
+                    </div>
+                    <div class="pull-right" style="float:left">
+                        <form action="/Malzemeler/Update">
+                            <input name="id" value="@item.Id" hidden />
+                            <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="silmeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kayıt Silme İşlemi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Kaydı silmek istediğinize emin misiniz?
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right" style="float:left">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                </div>
+                <div class="pull-right" style="float:left">
+                    <form action="/Malzemeler/Delete">
+                        <input id="silinecekId" name="id" hidden />
+                        <button class="btn btn-primary" type="submit">Evet</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
